@@ -44,18 +44,18 @@ public class SeleniumDaoETS1 {
     public static void startSeleniumConnection() throws Exception {
         System.out.println("Check1 " + baseUrl);
         //driver = new FirefoxDriver();
-        System.setProperty("webdriver.chrome.driver", "F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe");//todo setproperty bekijken
         ChromeOptions chromeoptions = new ChromeOptions();
         //chromeoptions.addArguments("start-maximized");
         //options.addArguments("user-data-dir=/path/to/your/custom/profile");
         chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
         driver = new ChromeDriver(chromeoptions);
-        System.out.println("Check1");
+
         //File file = new File("C:/EmielUserDATA/H-DISK/ALL_JAVA_SELENIUM/JAR_LIB/IEDriverServer_x64_2.45.0/IEDriverServer.exe");
         //System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
         //WebDriver driver = new InternetExplorerDriver();
         //driver = new InternetExplorerDriver();
-        System.out.println("Check2");
+
        // baseUrl = "https://www.google.nl/";
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         System.out.println("Check3");
