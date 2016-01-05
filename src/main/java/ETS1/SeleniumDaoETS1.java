@@ -137,6 +137,50 @@ public class SeleniumDaoETS1 {
 
         //return driver.findElement(new By.ByCssSelector(stringcss)).getText();
     }
+    public String[] getAllSelectorX(String stringcss1,String stringcss2) {
+        System.out.println("stringcss=    " + stringcss1);
+        String outputArray[] = new String[5];
+        try {
+            outputArray[0]= (
+                    "getTagName() gives: " +
+                            driver.findElement(new By.ByCssSelector(stringcss1)).getTagName()
+            );
+            outputArray[1]= (
+                    "getText() gives: " +
+                            //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
+                            driver.findElement(new By.ByCssSelector(stringcss1)).getText()
+            );
+            outputArray[2]= (
+                    "getAtrribute("+stringcss2 +") gives: " +
+                            //todo attribute uit nieuw tekstveld;
+                            //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
+                            driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
+            );
+            outputArray[3]= (
+                    "getAtrribute(\"class\") gives: " +
+                            //todo attribute uit nieuw tekstveld;
+                            //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
+                            driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
+            );
+            outputArray[4]= (
+                    "getAtrribute(\"class\") gives: " +
+                            //todo attribute uit nieuw tekstveld;
+                            //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
+                            driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
+            );
+
+        }
+        catch (NoSuchElementException e){
+            System.out.println("Not found:   " + stringcss1 + "    " + stringcss2);
+            return new String[]{"Not Found","Not Found","Not Found","Not Found","Not Found"};
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return outputArray;
+        //return driver.findElement(new By.ByCssSelector(stringcss)).getText();
+    }
 
 }
 /*

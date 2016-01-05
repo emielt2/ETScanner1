@@ -17,9 +17,11 @@ import javafx.stage.Stage;
 
 public class ETS1_GUI extends Application {
     static int counter=0;
+    static String outputs[]= new String[5];
     @Override
     public void start(Stage primaryStage) {
         System.out.println("STARTED");
+
         primaryStage.setTitle("CookieClickerHacker1.0");
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.TOP_LEFT);
@@ -87,7 +89,7 @@ public class ETS1_GUI extends Application {
 
         final Text scenetitle2 = new Text("Last results:");
         scenetitle2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid1.add(scenetitle2, 0, 7/*, 10, 10*/);
+        grid1.add(scenetitle2, 3, 3/*, 10, 10*/);
 
         //final TextField urlInputField = new TextField("http://orteil.dashnet.org/cookieclicker/");
         final TextField urlInputField = new TextField("http://www.gettyimages.nl/");
@@ -138,6 +140,14 @@ public class ETS1_GUI extends Application {
                 try {
                     System.out.println("--------------------------");
                     browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());
+
+                    outputs = browser1.getAllSelectorX(inputField1.getText(),inputField2.getText());
+                    scenetitle2.setText("");
+                    for(int i=0;i<5;i++){
+                        scenetitle2.setText(scenetitle2.getText().concat(outputs[i]).concat("\n"));
+                        //todo hier verder. geef gescance attr-mogelijkheden in extra textfield
+                    }
+
                     System.out.println("--------------------------");
                 } catch (Exception e1) {
 
