@@ -207,7 +207,13 @@ public class SeleniumDaoETS1 {
 
     public void mouseClick(String cssstring1) {
         try {
-            driver.findElement(new By.ByCssSelector(cssstring1)).click();
+           //good sometimes driver.findElement(new By.ByCssSelector(cssstring1)).click();
+           // driver.findElement(By.cssSelector(cssstring1)).click();
+            //driver.findElement(new By.ByPartialLinkText("TEXTS")).click();
+            driver.findElement(new By.ByPartialLinkText(cssstring1)).click();
+//todo meerdere opties teruggeven (alle By.By varianten die Rashmi/Geb wil. Optie voor gebruiker om toe te voegen aan database for later use;
+            //driver.findElement(By.linkText("Texts")).click();
+           // driver.findElement(new By.ByLinkText("Texts")).click();
             //driver.findElement(new By.ByCssSelector("#tooltip > div > div.data > b:nth-child(1)"));
         } catch (Exception e) {
             //e.printStackTrace();
