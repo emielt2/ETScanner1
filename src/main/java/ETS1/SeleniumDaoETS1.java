@@ -16,6 +16,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.NoSuchElementException;
+import org.w3c.dom.NamedNodeMap;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -57,15 +59,15 @@ public class SeleniumDaoETS1 {
         //driver = new InternetExplorerDriver();
 
        // baseUrl = "https://www.google.nl/";
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(500, TimeUnit.MILLISECONDS);
         System.out.println("Check3");
         //driver.get(baseUrl + "/?gws_rd=ssl");
         driver.get(baseUrl /*+ inputURL*/);
     }
     public static void stopSeleniumConnection() throws Exception {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         driver.close();
-        Thread.sleep(500);
+        //Thread.sleep(500);
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -108,7 +110,8 @@ public class SeleniumDaoETS1 {
         }
     }
     public void printAllSelectorX(String stringcss1,String stringcss2) {
-        System.out.println("stringcss=    " + stringcss1);
+        System.out.println("stringcss1=    " + stringcss1);
+        System.out.println("stringcss2=    " + stringcss2);
         try {
             System.out.println(
                     "getTagName() gives: " +
@@ -138,7 +141,8 @@ public class SeleniumDaoETS1 {
         //return driver.findElement(new By.ByCssSelector(stringcss)).getText();
     }
     public String[] getAllSelectorX(String stringcss1,String stringcss2) {
-        System.out.println("stringcss=    " + stringcss1);
+        System.out.println("stringcss1=    " + stringcss1);
+        System.out.println("stringcss2=    " + stringcss2);
         String outputArray[] = new String[5];
         try {
             outputArray[0]= (
@@ -156,19 +160,21 @@ public class SeleniumDaoETS1 {
                             //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
                             driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
             );
+            System.out.println("[2] ="+outputArray[2]);
             outputArray[3]= (
-                    "getAtrribute(\"class\") gives: " +
+                    "//hasChildNodes() gives: " +
                             //todo attribute uit nieuw tekstveld;
                             //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
                             driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
             );
             outputArray[4]= (
-                    "getAtrribute(\"class\") gives: " +
+                    "//getAtrribute(\"class\") gives: " +
                             //todo attribute uit nieuw tekstveld;
                             //driver.findElement(new By.ByCssSelector(stringcss)).getAttribute()
                             driver.findElement(new By.ByCssSelector(stringcss1)).getAttribute(stringcss2)
             );
-
+            outputArray[3]= ("-----");
+            outputArray[4]= ("-----");
         }
         catch (NoSuchElementException e){
             System.out.println("Not found:   " + stringcss1 + "    " + stringcss2);
@@ -182,6 +188,32 @@ public class SeleniumDaoETS1 {
         //return driver.findElement(new By.ByCssSelector(stringcss)).getText();
     }
 
+    public /*NamedNodeMap*/ void getNNM(String stringcss1,String stringcss2) {
+        System.out.println(driver.findElement(new By.ByCssSelector(stringcss1)).getCssValue(stringcss2));
+        //driver.findElement(new By.ByCssSelector(stringcss1)).getCssValue(stringcss2);
+    }
+
+    public void mouseOver(String cssstring1) {
+        Actions builder = new Actions(driver);
+        //builder.moveToElement(hoverElement).perform();
+        try {
+            builder.moveToElement(driver.findElement(new By.ByCssSelector(cssstring1))).perform();
+            //driver.findElement(new By.ByCssSelector("#tooltip > div > div.data > b:nth-child(1)"));
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void mouseClick(String cssstring1) {
+        try {
+            driver.findElement(new By.ByCssSelector(cssstring1)).click();
+            //driver.findElement(new By.ByCssSelector("#tooltip > div > div.data > b:nth-child(1)"));
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
 }
 /*
 class ResultObj{

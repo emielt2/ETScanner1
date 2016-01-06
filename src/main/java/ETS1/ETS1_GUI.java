@@ -14,15 +14,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.w3c.dom.NamedNodeMap;
+
+import java.util.Arrays;
 
 public class ETS1_GUI extends Application {
     static int counter=0;
+    static int tryCounter=0;
     static String outputs[]= new String[5];
     @Override
     public void start(Stage primaryStage) {
         System.out.println("STARTED");
 
-        primaryStage.setTitle("CookieClickerHacker1.0");
+        primaryStage.setTitle("ETSCanner1.0");
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.TOP_LEFT);
         grid1.setHgap(10);
@@ -31,71 +35,84 @@ public class ETS1_GUI extends Application {
 //--buttonGo
         Button buttonGo = new Button("Open session URL");//buttonGo
         HBox hbButtonGo = new HBox(40);//buttonGo
-        hbButtonGo.setAlignment(Pos.TOP_LEFT);//buttonGo
+        hbButtonGo.setAlignment(Pos.TOP_RIGHT);//buttonGo
         hbButtonGo.getChildren().add(buttonGo);//buttonGo
-        grid1.add(hbButtonGo, 0, 5);//buttonGo
+        grid1.add(hbButtonGo, 1, 0);//buttonGo
 ///---
         //---
-        Button buttonShow = new Button("Close session");
-        HBox hbButtonShow = new HBox(40);
-        hbButtonShow.setAlignment(Pos.TOP_LEFT);
-        hbButtonShow.getChildren().add(buttonShow);
-        grid1.add(hbButtonShow, 0, 6);
+        Button buttonCloseSession = new Button("Close session");
+        HBox hdButtonCloseSession = new HBox(40);
+        hdButtonCloseSession.setAlignment(Pos.TOP_RIGHT);
+        hdButtonCloseSession.getChildren().add(buttonCloseSession);
+        grid1.add(hdButtonCloseSession, 2, 0);
         ///---
         //---
 
-        Button buttonClicking = new Button("CLICKCLICK");
+        final Button buttonClicking = new Button("CLICKCLICK");
         HBox hbButtonClicking = new HBox(40);
         hbButtonClicking.setAlignment(Pos.TOP_LEFT);
-        hbButtonClicking.getChildren().add(buttonClicking);
-        grid1.add(hbButtonClicking, 1, 5);
 
-        ///---
-        //---
 
-        Button buttonBestBuyProd = new Button("BestBuyProd");
-        HBox hbButtonBestBuyProd = new HBox(40);
-        hbButtonBestBuyProd.setAlignment(Pos.TOP_LEFT);
-        hbButtonBestBuyProd.getChildren().add(buttonBestBuyProd);
-        grid1.add(hbButtonBestBuyProd, 1, 7);
-
-        ///---
-        //---
-
-        Button buttonBuyNewItem = new Button("BuyNewItem");
-        HBox hbButtonBuyNewItem = new HBox(40);
-        hbButtonBuyNewItem.setAlignment(Pos.TOP_LEFT);
-        hbButtonBuyNewItem.getChildren().add(buttonBuyNewItem);
-        grid1.add(hbButtonBuyNewItem, 1, 8);
-
-        ///---
-//--checkbox
-        final CheckBox cb1 = new CheckBox("Keep Looping");
+        //--checkbox
+        final CheckBox cb1 = new CheckBox("CheckBox cb1");
         cb1.setSelected(true);
-        grid1.add(cb1,1,9);
+        //grid1.add(cb1,3,0);
 
         //grid1.add(cb1);
+
+
+        grid1.add(hbButtonClicking, 1, 3);
 ///-----
+        ///---
+        //---
+
+        Button buttonMouseOver = new Button("MouseOver");
+        HBox hbButtonMouseOver = new HBox(40);
+        hbButtonMouseOver.setAlignment(Pos.TOP_LEFT);
+        hbButtonMouseOver.getChildren().add(buttonMouseOver);
+       // grid1.add(hbButtonMouseOver, 1, 7);
+
+        ///---
+
+        //---
+
+        Button buttonMouseClick = new Button("MouseClick");
+        HBox hbButtonMouseClick = new HBox(40);
+        hbButtonMouseClick.setAlignment(Pos.TOP_LEFT);
+        hbButtonMouseClick.getChildren().add(buttonMouseClick);
+        //grid1.add(hbButtonMouseClick, 1, 8);
+        hbButtonClicking.getChildren().addAll(buttonClicking,buttonMouseOver,buttonMouseClick);
+        ///---
+
 
         Separator sepHor1 = new Separator();
+        sepHor1.setMinWidth(300);
+        sepHor1.setLayoutX(100);
+        grid1.add(sepHor1,0,4);
         Separator sepHor2 = new Separator();
         Separator sepVer = new Separator();//Vertical separator
         sepVer.setOrientation(Orientation.VERTICAL);//Vertical separator
-        final Text actiontarget = new Text();
-        grid1.add(actiontarget, 1, 6);
+        final Text statusText = new Text();
+        //grid1.add(statusText, 1, 6);
         Text scenetitle = new Text("Welcome Citizen47281");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid1.add(scenetitle, 0, 1/*, 1, 1*/);
+        //grid1.add(scenetitle, 0, 1/*, 1, 1*/);
 
         final Text scenetitle2 = new Text("Last results:");
-        scenetitle2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid1.add(scenetitle2, 3, 3/*, 10, 10*/);
+        Arrays.fill(outputs, "---");
+        scenetitle2.setText("");
+        for(int i=0;i<5;i++){
+            scenetitle2.setText(scenetitle2.getText().concat(outputs[i]).concat("\n"));
+        }
+        scenetitle2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 13));
+        grid1.add(scenetitle2, 0, 5, 2, 1);
 
         //final TextField urlInputField = new TextField("http://orteil.dashnet.org/cookieclicker/");
-        final TextField urlInputField = new TextField("http://www.gettyimages.nl/");
+        final TextField urlInputField = new TextField("http://genius.com/forums");
+        urlInputField.setAlignment(Pos.TOP_LEFT);
 
-        final TextField inputField1 = new TextField("span#cart-count");
-        final TextField inputField2 = new TextField("span#cart-count");
+        final TextField inputField1 = new TextField("header");
+        final TextField inputField2 = new TextField("innerHTML");
         final SeleniumDaoETS1 browser1 = new SeleniumDaoETS1(urlInputField.getText());
         try {
             browser1.startSeleniumConnection();
@@ -105,8 +122,8 @@ public class ETS1_GUI extends Application {
         //butonGo extra
         buttonGo.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
-                actiontarget.setFill(Color.BLUE);
-                actiontarget.setText("Processing... " + counter ++);
+                statusText.setFill(Color.BLUE);
+                statusText.setText("Processing... " + counter ++);
                 try {
                     System.out.println("Go clicked");
                     browser1.startSeleniumConnection();
@@ -117,18 +134,20 @@ public class ETS1_GUI extends Application {
             }
         });
 
-        buttonShow.setOnAction(new EventHandler<ActionEvent>() {
+        buttonCloseSession.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent e) {
 
                 try {
                     System.out.println("Show clicked");
                     browser1.stopSeleniumConnection();
+                    System.exit(123);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
         });
+
 
         buttonClicking.setOnAction(new EventHandler<ActionEvent>() {
 //todo gooi result naar resulttekst
@@ -139,15 +158,20 @@ public class ETS1_GUI extends Application {
 
                 try {
                     System.out.println("--------------------------");
-                    browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());
+
+
+
+                    //browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());
+
 
                     outputs = browser1.getAllSelectorX(inputField1.getText(),inputField2.getText());
-                    scenetitle2.setText("");
+                    scenetitle2.setText("Try " + tryCounter++ +"\n");
                     for(int i=0;i<5;i++){
                         scenetitle2.setText(scenetitle2.getText().concat(outputs[i]).concat("\n"));
                         //todo hier verder. geef gescance attr-mogelijkheden in extra textfield
                     }
-
+                    NamedNodeMap nnm;
+                    ///*nnm =*/ browser1.getNNM(inputField1.getText(),inputField2.getText());
                     System.out.println("--------------------------");
                 } catch (Exception e1) {
 
@@ -155,26 +179,51 @@ public class ETS1_GUI extends Application {
                 }
             }
         });
+        //inputField2.setOnAction(););
+        inputField1.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                try {
+                    System.out.println("Go clicked");
+                    buttonClicking.fire();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
+        inputField2.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
+                try {
+                    System.out.println("Go clicked");
+                    buttonClicking.fire();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
+
 //TODO maak scanbutton
-        buttonBestBuyProd.setOnAction(new EventHandler<ActionEvent>() {
+        buttonMouseOver.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent e) {
 
                 try {
-                    System.out.println("buybestbutton clicked");
-                   // browser1.bestBuyProd();
+                    System.out.println("buttonMouseOver clicked");
+                    browser1.mouseOver(inputField1.getText());
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
         });
 
-        buttonBuyNewItem.setOnAction(new EventHandler<ActionEvent>() {
-
+        buttonMouseClick.setOnAction(new EventHandler<ActionEvent>() {
+//todo betere clicker maken
             public void handle(ActionEvent e) {
 
                 try {
-                    System.out.println("buy new item clicked");
+                    System.out.println("Mouseclick clicked");
+                    browser1.mouseClick(inputField1.getText());
                  //   browser1.buyNextItem();
                 } catch (Exception e1) {
                     e1.printStackTrace();
@@ -187,11 +236,11 @@ public class ETS1_GUI extends Application {
 //--SETTING CONTENT OF GRIDS
        GridPane grid2 = new GridPane();
         Label userName = new Label("FROM valuta:");
-        grid1.add(userName, 0, 3);
-        grid1.add(urlInputField, 1, 3);
+        //grid1.add(userName, 0, 3);
+        grid1.add(urlInputField, 0, 0);
         //String input1=urlInputField.getText();
-        grid1.add(inputField1, 1, 4);
-        grid1.add(inputField2, 2, 4);
+        grid1.add(inputField1, 0, 1);
+        grid1.add(inputField2, 1, 1);
 
 //        grid1.add(table,2,0,1,70);
 
