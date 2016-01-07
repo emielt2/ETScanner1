@@ -1,19 +1,20 @@
 import geb.spock.GebReportingSpec
-import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
+
+
 
 /**
  * Created by E on 07/01/2016.
  */
-@RunWith(JUnit4)
-class GroovyClassTest extends GebReportingSpec{
+
+public class GroovyClassTest extends GebReportingSpec{
 
 
 
-    @Test
+
+   // def "Step1"(){
     def "Step1"(){
-        to GebishOrgHomePage
+        to ScanPage
+        //to GebishOrgHomePage
         when:
         to ScanPage
 

@@ -14,7 +14,9 @@
     <orderEntry type="library" name="selenium-2.45" level="project" />
     <orderEntry type="library" name="chromedriver_win32" level="project" />
     <orderEntry type="library" name="groovy-2.4.5" level="application" />
-    <orderEntry type="library" name="geb-spock-0.12" level="project" />
+    <orderEntry type="library" name="JUNIT" level="project" />
+    <orderEntry type="library" name="org.gebish:geb-core:0.12.2" level="project" />
     <orderEntry type="library" name="spock-core-0.7-groovy-2" level="project" />
+    <orderEntry type="library" name="geb-spock-0.12" level="project" />
   </component>
 </module>
