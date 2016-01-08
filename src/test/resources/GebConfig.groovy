@@ -39,3 +39,8 @@ baseUrl = "http://gebish.org"
 
 //set the report output directory
 reportsDir = "reports/"
+import org.openqa.selenium.chrome.ChromeDriver
+driver = {
+	System.setProperty('webdriver.chrome.driver', 'F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe')
+	new ChromeDriver()
+}

@@ -13,12 +13,19 @@ public class GroovyClassTest extends GebReportingSpec{
 
    // def "Step1"(){
     def "Step1"(){
-        to ScanPage
+        //to ScanPage
         //to GebishOrgHomePage
         when:
+        println "to1"
         to ScanPage
-
+//todo meer pagina urls enzo, meer pages
         then:
-        print "ja Step1 end"
+        print "at1"
+       // at ScanPage
+       // sleep(5000)
+        print "at2"
+        at CookieClickerPage
+        page.printDD();
+        print "ja StepBB end"
     }
 }

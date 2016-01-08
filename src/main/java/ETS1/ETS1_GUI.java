@@ -119,6 +119,7 @@ public class ETS1_GUI extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         //butonGo extra
         buttonGo.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
@@ -126,7 +127,8 @@ public class ETS1_GUI extends Application {
                 statusText.setText("Processing... " + counter ++);
                 try {
                     System.out.println("Go clicked");
-                    browser1.startSeleniumConnection();
+                    //browser1.startSeleniumConnection();//groovy test
+                    //todo GroovyClassTest x1 =
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
