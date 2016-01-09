@@ -17,19 +17,20 @@ public class GroovyClassTest extends GebReportingSpec{
 //todo meer pagina urls enzo, meer pages
         then:
         println "at1"
+        //Step1() //zou mooi zijn
         at ScanPage
         println "at2"
         at CookieClickerPage
         page.printDD();
-        println "ja StepBB end"
+        println "ja Step2 end"
     }
 
 
     public static void main(){
         System.out.println("MAIN()");
         //Step2();
-        GeefX();
-
+       // GeefX();
+        startStep1();
       //  when:
       //  println "main2"
 
@@ -55,7 +56,7 @@ public class GroovyClassTest extends GebReportingSpec{
         println "at2"
         at CookieClickerPage
         page.printDD();
-        println "ja StepBB end"
+        println "ja Step1 end"
     }
 
 
