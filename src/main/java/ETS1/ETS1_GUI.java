@@ -114,8 +114,12 @@ public class ETS1_GUI extends Application {
         final TextField inputField1 = new TextField("header");
         final TextField inputField2 = new TextField("innerHTML");
         final SeleniumDaoETS1 browser1 = new SeleniumDaoETS1(urlInputField.getText());
+
+        /**
+         * Start Auto browser
+         */
         try {
-            browser1.startSeleniumConnection();
+           // browser1.startSeleniumConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,8 +131,9 @@ public class ETS1_GUI extends Application {
                 statusText.setText("Processing... " + counter ++);
                 try {
                     System.out.println("Go clicked");
-                    //browser1.startSeleniumConnection();//groovy test
-                    //todo GroovyClassTest x1 =
+                    browser1.startSeleniumConnection();//groovy test
+
+
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -160,12 +165,16 @@ public class ETS1_GUI extends Application {
 
                 try {
                     System.out.println("--------------------------");
-
+//todo GroovyClassTest x1 =
+                    GroovyClassTest gct1 = new GroovyClassTest();
+                    //gct1.startStep1();
+                    gct1.main();
+                    //todo call with -gradle.bat?
 
 
                     //browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());
 
-
+/*
                     outputs = browser1.getAllSelectorX(inputField1.getText(),inputField2.getText());
                     scenetitle2.setText("Try " + tryCounter++ +"\n");
                     for(int i=0;i<5;i++){
@@ -173,8 +182,10 @@ public class ETS1_GUI extends Application {
                         //todo hier verder. geef gescance attr-mogelijkheden in extra textfield
                     }
                     NamedNodeMap nnm;
-                    ///*nnm =*/ browser1.getNNM(inputField1.getText(),inputField2.getText());
+                    ///*nnm =*/
+                    /*browser1.getNNM(inputField1.getText(),inputField2.getText());
                     System.out.println("--------------------------");
+                    */
                 } catch (Exception e1) {
 
                     e1.printStackTrace();

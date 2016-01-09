@@ -12,7 +12,7 @@ public class GroovyClassTest extends GebReportingSpec{
 
 
    // def "Step1"(){
-    def "Step1"(){
+    public def "Step1"(){
         //to ScanPage
         //to GebishOrgHomePage
         when:
@@ -20,10 +20,10 @@ public class GroovyClassTest extends GebReportingSpec{
         to ScanPage
 //todo meer pagina urls enzo, meer pages
         then:
-        print "at1"
+        println "at1"
        // at ScanPage
        // sleep(5000)
-        print "at2"
+        println "at2"
         at CookieClickerPage
         page.printDD();
         print "ja StepBB end"

@@ -10,11 +10,38 @@ import geb.spock.GebReportingSpec
 
 public class GroovyClassTest extends GebReportingSpec{
 
+    public void Step2(){
+        when:
+        println "to1"
+        to ScanPage
+//todo meer pagina urls enzo, meer pages
+        then:
+        println "at1"
+        at ScanPage
+        println "at2"
+        at CookieClickerPage
+        page.printDD();
+        println "ja StepBB end"
+    }
 
 
+    public static void main(){
+        System.out.println("MAIN()");
+        //Step2();
+        GeefX();
 
-   // def "Step1"(){
+      //  when:
+      //  println "main2"
+
+    }
+
+    void startStep1(){
+        Step1();
+    }
+
+
     def "Step1"(){
+   // public def "Step1"(){
         //to ScanPage
         //to GebishOrgHomePage
         when:
@@ -22,12 +49,19 @@ public class GroovyClassTest extends GebReportingSpec{
         to ScanPage
 //todo meer pagina urls enzo, meer pages
         then:
-        print "at1"
-       // at ScanPage
+        println "at1"
+        at ScanPage
        // sleep(5000)
-        print "at2"
+        println "at2"
         at CookieClickerPage
         page.printDD();
-        print "ja StepBB end"
+        println "ja StepBB end"
     }
+
+
 }
+/*
+public String GeefX(){
+    return "X";
+}
+*/

@@ -13,7 +13,7 @@ class CookieClickerPage extends Page {
     }
 
     void printDD(){
-        print "DD"
+        println "DD"
     }
 }
 
