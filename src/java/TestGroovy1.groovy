@@ -1,4 +1,4 @@
-package ETS1
+//package ETS1
 
 import geb.spock.GebReportingSpec
 
@@ -47,8 +47,9 @@ public class TestGroovy1 extends GebReportingSpec{
         //methodx()
         //main();
         //startStep1();
-        script.printEE();
+        script.printEE();//extends GebReportingSpec{
         script2.printEE();
+        // extends Page
 
         println "End of TestGroovy1"
 

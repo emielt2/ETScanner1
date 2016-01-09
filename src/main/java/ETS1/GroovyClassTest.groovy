@@ -62,12 +62,14 @@ public class GroovyClassTest extends GebReportingSpec{
         println "ja Step1 end"
     }
 
-    def printEE(){
+    //maybe not allowed in gebpeport
+    def static printEE(){
         println "Dit is EE van ETS1\\GroovyClassTest"
         return true
     }
 
 }
+
 /*
 public String GeefX(){
     return "X";
