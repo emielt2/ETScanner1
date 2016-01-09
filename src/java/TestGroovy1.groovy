@@ -10,10 +10,10 @@ public class TestGroovy1 extends GebReportingSpec{
         println "TestGroovy1__Step1TEXT"
         println printX()
     }
-    public void "void1"(){
+    /*public void "void1"(){
         when:
 
-        println "void1--"
+        println "void1--asdfasdf"
 
         then:
 
@@ -26,7 +26,7 @@ public class TestGroovy1 extends GebReportingSpec{
         then:
         println "void2text"
     }
-
+*/
     def void3(){
         when:
         println "void3--"
@@ -39,15 +39,19 @@ public class TestGroovy1 extends GebReportingSpec{
             //F:\Users\E\ETScanner1\src\main\java\ETS1
             //F:\Users\E\ETScanner1\src\main\java\ETS1
         }
+        def script2 = new GroovyScriptEngine( '' ).with {
+            loadScriptByName( 'src/main//java/ETS1/ScanPage.groovy' )
+        }
         this.metaClass.mixin script
 
         //methodx()
         //main();
         //startStep1();
-        printEE();
-        sleep(3000)
-        println "Sleeping3000+3000"
-        sleep(3000)
+        script.printEE();
+        script2.printEE();
+
+        println "End of TestGroovy1"
+
         //Step2();
     }
 }
