@@ -29,8 +29,10 @@ public class TestGroovy1 extends GebReportingSpec{
 */
     def void3(){
         when:
+        to ScanPage
         println "void3--"
         then:
+        at ScanPage
         def script = new GroovyScriptEngine( '' ).with {
             //loadScriptByName( 'target/classes/ETS1/GroovyClassTest.class/GroovyTestClass.groovy' )
             /*DEZE WERKT*/ loadScriptByName( 'src/main//java/ETS1/GroovyClassTest.groovy' )
@@ -50,7 +52,10 @@ public class TestGroovy1 extends GebReportingSpec{
         script.printEE();//extends GebReportingSpec{
         script2.printEE();
         // extends Page
-
+        sleep(3000)
+        new GroovyShell().parse( new File( 'src/main//java/ETS1/ScanPage.groovy' ) ).with {
+            printEE()
+        }
         println "End of TestGroovy1"
 
         //Step2();
