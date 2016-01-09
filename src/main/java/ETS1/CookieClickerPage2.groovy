@@ -1,10 +1,10 @@
 package ETS1
 
 import geb.Page
-
+import geb.spock.GebReportingSpec
 
 //println "This is ScanPage.groovy starttext outside a method"
-class CookieClickerPage extends Page {
+public class CookieClickerPage2 extends GebReportingSpec {
 
     static at = { title == "Geb - Very Groovy Browser Automation" }
 

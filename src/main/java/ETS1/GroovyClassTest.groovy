@@ -20,28 +20,31 @@ public class GroovyClassTest extends GebReportingSpec{
         //Step1() //zou mooi zijn
         at ScanPage
         println "at2"
-        at CookieClickerPage
-        page.printDD();
+        //at CookieClickerPage2
+        page.printEE();
         println "ja Step2 end"
     }
 
 
     public static void main(){
-        System.out.println("MAIN()");
+        System.out.println("THIS IS MAIN() MAN");
         //Step2();
        // GeefX();
-        startStep1();
+        //startStep1();
       //  when:
       //  println "main2"
 
     }
 
     void startStep1(){
-        Step1();
+        when:
+        Step1gct();
+        then:
+        print "startStep1TEXT_THEN"
     }
 
 
-    def "Step1"(){
+    def "Step1gct"(){
    // public def "Step1"(){
         //to ScanPage
         //to GebishOrgHomePage
@@ -54,11 +57,15 @@ public class GroovyClassTest extends GebReportingSpec{
         at ScanPage
        // sleep(5000)
         println "at2"
-        at CookieClickerPage
-        page.printDD();
+        //at CookieClickerPage2
+        page.printEE();
         println "ja Step1 end"
     }
 
+    def printEE(){
+        println "Dit is EE van ETS1\\GroovyClassTest"
+        return true
+    }
 
 }
 /*

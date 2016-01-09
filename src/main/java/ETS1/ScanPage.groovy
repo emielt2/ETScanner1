@@ -11,6 +11,10 @@ class ScanPage extends Page {
     static content = {
         manualsMenu { module MenuModule, $("#header-content ul li", 0) }
     }
+    def printEE(){
+        println "Dit is EE van ETS1\\ScanPage"
+        return true
+    }
 }
 
 /*
