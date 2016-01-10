@@ -1,28 +1,38 @@
 package ETS1
 
 import geb.spock.GebReportingSpec
+import org.junit.Test
+import spock.lang.Shared
+import spock.lang.Stepwise
 
 
-
-/**
- * Created by E on 07/01/2016.
- */
-
+//@Stepwise
 public class GroovyClassTest extends GebReportingSpec{
+    int number1 =1;
+    static int number2 =2;
+    public class tempClass{
+        void printTempClass(){
+            println "This is printTempClass() text"
 
+        }
+    }
+public void step3(){
+    println "step3 Text"
+}
     public void Step2(){
         when:
         println "to1"
-        to ScanPage
+        //to ScanPage
 //todo meer pagina urls enzo, meer pages
         then:
-        println "at1"
+        println "at Step222"
         //Step1() //zou mooi zijn
-        at ScanPage
-        println "at2"
+        //at ScanPage
+        println "at Step222"
         //at CookieClickerPage2
-        page.printEE();
-        println "ja Step2 end"
+        //page.printEE1();
+        printEE1();
+        println "ja GroovyTestClassStep2 end"
     }
 
 
@@ -36,37 +46,80 @@ public class GroovyClassTest extends GebReportingSpec{
 
     }
 
-    void startStep1(){
-        when:
+    def static startStep1(){
+        //when:
+        print "startStep1WHEN text"
+        //to
+        printEE1()
         Step1gct();
-        then:
+        //Step1gct("hallo");
+        //GroovyClassTest.Step1gct();
+        //printEE1()
+        //Step1gct();
+        //then:
         print "startStep1TEXT_THEN"
+        return true;
     }
 
+    //@Shared
 
-    def "Step1gct"(){
+
+    public Step1gct(){
+//todo hier verder. hoe callen we deze non static
+        //Step1gct(){}
    // public def "Step1"(){
         //to ScanPage
         //to GebishOrgHomePage
         when:
-        println "to1"
-        to ScanPage
+        //print a
+        println "Step1gct START"
+        //to ScanPage
 //todo meer pagina urls enzo, meer pages
         then:
         println "at1"
-        at ScanPage
+       // at ScanPage
        // sleep(5000)
         println "at2"
         //at CookieClickerPage2
-        page.printEE();
-        println "ja Step1 end"
+        //page.printEE(); hoorde bij at page ScanPage
+        println "ja Step1gct end"
+        return;
     }
 
     //maybe not allowed in gebpeport
-    def static printEE(){
-        println "Dit is EE van ETS1\\GroovyClassTest"
+    def static printEE1(String input){
+
+        println input + " - Dit is EE van ETS1\\GroovyClassTest"
+
         return true
     }
+
+/*
+    public static String createX(String y) {
+        println "createX text"
+        return new String(y)
+    }
+*/
+    public class X {}
+
+  /*  public X foo1() {   when:
+    println "to1"
+    //to ScanPage
+//todo meer pagina urls enzo, meer pages
+        then:
+        println "at Step222"
+        //return new Step1gct()
+        return new X()
+    }*/
+    public static X createX(GroovyClassTest y) {
+        println "createX text"
+        return new X(y)
+    }
+    public static GroovyClassTest geefObj() {
+        println "geefObj text"
+        return new GroovyClassTest()
+    }
+
 
 }
 
