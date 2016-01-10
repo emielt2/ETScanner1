@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ETScanner1.iml" filepath="$PROJECT_DIR$/ETScanner1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ModuleAA/ModuleAA.iml" filepath="$PROJECT_DIR$/ModuleAA/ModuleAA.iml" />
     </modules>
   </component>
 </project>

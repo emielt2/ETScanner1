@@ -1,9 +1,25 @@
 package ETS1
 
 import geb.spock.GebReportingSpec
+import ETS1.GroovyClassTest
+import geb.spock.GebSpec;
+import spock.lang.Shared
+import spock.lang.Stepwise
+
+//--
+import geb.spock.GebReportingSpec
+import org.junit.Test
+import spock.lang.Shared
+import spock.lang.Stepwise
+//--
+//import pageobjects.algemeen.ESuitePage
+import ETS1.ScanPage;
+import geb.Browser;
+import geb.Page;
+import geb.*;
+import spock.*;
 import ETS1.GroovyClassTest;
-
-
+//public class TestGroovy1 extends GebSpec{
 public class TestGroovy1 extends GebReportingSpec{
 
     void printX() {
@@ -96,14 +112,39 @@ public class TestGroovy1 extends GebReportingSpec{
        // gct1.startStep1();
         //------------
             //def a = new A()
-        //def gct2 = new GroovyClassTest()
+        def gct2 = new GroovyClassTest()
             //A.B.newInstance(a, "foo")
         //gct2.tempClass.newInstance();
         ///-------------
         Basis b1=new Basis();
         b1.printNONstatic2();
         b1.printstatic1();
+        GroovyClassTest.tempClass.newInstance().printTempClass();
+        //GroovyClassTest.newInstance().Step1gct()
+        //GroovyClassTest.newInstance().Step1gct() //todo niet zo zoomen op losse nonstatic methods. probeer full scripts, alhoewel probleem ligt bij spock/browser
 
+        GroovyClassTest.newInstance().printEE1("newinstancetext ");
+        GroovyClassTest.newInstance().step3();
+        //GroovyClassTest.newInstance().Step1gct()
+
+        //---
+
+        SpecGroovyTest sgtA = SpecGroovyTest.newInstance();
+        sgtA.stepSGT1();
+        when:
+        println "sgtAxx startWHEN"
+        //SpecGroovyTest.newInstance().invokeMethod("stepSGT2()",null)//.evaluate
+        //SpecGroovyTest.newInstance().stepSGT2()
+        SpecGroovyTest.newInstance().stepSGT3()
+        then:
+        println "sgtAxx endTHEN"
+
+        //sgtA.new
+        //sgtA.stepSGT2();
+//        SpecGroovyTest.newInstance().stepSGT2()//todo hier was ik
+        def sgtBB=new SpecGroovyTest()
+        //sgtBB.stepSGT2()
+//        sgtBB.browser.$augmentedDriver
 
         //---
         def shell2 = new GroovyShell()

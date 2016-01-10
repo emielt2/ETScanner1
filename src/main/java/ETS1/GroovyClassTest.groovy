@@ -4,7 +4,8 @@ import geb.spock.GebReportingSpec
 import org.junit.Test
 import spock.lang.Shared
 import spock.lang.Stepwise
-
+import spock.lang.Shared
+import spock.lang.Stepwise
 
 //@Stepwise
 public class GroovyClassTest extends GebReportingSpec{
@@ -13,12 +14,20 @@ public class GroovyClassTest extends GebReportingSpec{
     public class tempClass{
         void printTempClass(){
             println "This is printTempClass() text"
-
+            when:
+            println "This is printTempClass WHEN"
+            then:
+            println "This is printTempClass THEN"
         }
     }
 public void step3(){
+    /*when:
+    println "This is step3 WHEN"
+    then:
+    println "This is step3 THEN"*/
     println "step3 Text"
 }
+
     public void Step2(){
         when:
         println "to1"
@@ -64,7 +73,7 @@ public void step3(){
     //@Shared
 
 
-    public Step1gct(){
+    public void Step1gct(){
 //todo hier verder. hoe callen we deze non static
         //Step1gct(){}
    // public def "Step1"(){
