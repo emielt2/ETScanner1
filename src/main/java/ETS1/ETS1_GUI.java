@@ -166,9 +166,12 @@ public class ETS1_GUI extends Application {
                 try {
                     System.out.println("--------------------------");
 //todo GroovyClassTest x1 =
-                    GroovyClassTest gct1 = new GroovyClassTest();
+                    /*GroovyClassTest gct1 = new GroovyClassTest();
                     //gct1.startStep1();
-                    gct1.main();
+                    gct1.main();*/
+                    ScanTest1 stA=new ScanTest1();
+                    stA.StepHurray();
+                    //new ScanTest1.newInstance().StepHurray();
                     //todo call with -gradle.bat?
 
 

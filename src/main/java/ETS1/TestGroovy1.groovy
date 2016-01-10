@@ -140,7 +140,7 @@ public class TestGroovy1 extends GebReportingSpec{
         println "sgtAxx endTHEN-------"
         //sleep(5000)
         //ScanTest1.newInstance().Step1()
-        //ScanTest1.newInstance().StepHurray()//BEST!!
+        ScanTest1.newInstance().StepHurray()//BEST!!
 
 
         //sgtA.new

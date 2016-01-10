@@ -4,8 +4,11 @@ import geb.Browser
 import geb.spock.GebReportingSpec
 import geb.spock.GebSpec
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.spockframework.runtime.SpockRuntime
 import spock.lang.Specification
+
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by E on 07/01/2016.
@@ -23,39 +26,27 @@ public class ScanTest1 extends GebReportingSpec{
             when:
             go "/testing"
 then:
-           //$("#username").text = 'John'
-           // $("#password").text = 'Doe'
-
-  //          $("#loginButton").click()
-
             assert title == "Geb - Very Groovy Browser Automation"
             println "HURRAY!!!!!!!!!!!!!!!!!!!"
-// assert title == "My Application - Dashboard"
-
         }
-///---
-
-        //then:
-        //at ScanPage
         println "ja Stepxx end"
         return true
     }
-
     public def StepHurray(){
-        //when:
-        def browser = new Browser(driver: new ChromeDriver(), baseUrl: 'http://gebish.org')
-
+        System.setProperty("webdriver.chrome.driver", "F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe");//todo setproperty bekijken
+        ChromeOptions chromeoptions = new ChromeOptions();
+        chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://gebish.org')
         browser.drive {
             when:
-            go "/testing"
+            browser.go("http://gebish.org")
+            //go "http://gebish.org/testing"
             then:
-            //$("#username").text = 'John'
-            assert title == "Geb - Very Groovy Browser Automation"
-            println "HURRAY!!!!!!!!!!!!!!!!!!!"
+            assert browser.title == "Geb - Very Groovy Browser Automation"
+            println "HURRAY!!!!!!!!!!!!!!!!!!!2222"
+            browser.quit()
         }
-        //then:
         println "ja Stepxx end"
         return true
     }
-
 }
