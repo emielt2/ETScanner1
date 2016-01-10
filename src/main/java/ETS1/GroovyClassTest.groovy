@@ -1,7 +1,9 @@
 package ETS1
 
+import geb.Browser
 import geb.spock.GebReportingSpec
 import org.junit.Test
+import org.openqa.selenium.chrome.ChromeDriver
 import spock.lang.Shared
 import spock.lang.Stepwise
 import spock.lang.Shared
@@ -79,18 +81,22 @@ public void step3(){
    // public def "Step1"(){
         //to ScanPage
         //to GebishOrgHomePage
-        when:
-        //print a
-        println "Step1gct START"
-        //to ScanPage
+        def browser = new Browser(driver: new ChromeDriver(), baseUrl: 'http://gebish.org')
+
+        browser.drive {
+            when:
+            //print a
+            println "Step1gct START"
+            to ScanPage
 //todo meer pagina urls enzo, meer pages
-        then:
-        println "at1"
-       // at ScanPage
-       // sleep(5000)
-        println "at2"
-        //at CookieClickerPage2
-        //page.printEE(); hoorde bij at page ScanPage
+            then:
+            println "at1"
+             at ScanPage
+            // sleep(5000)
+            println "at2"
+            //at CookieClickerPage2
+            //page.printEE(); hoorde bij at page ScanPage
+        }
         println "ja Step1gct end"
         return;
     }

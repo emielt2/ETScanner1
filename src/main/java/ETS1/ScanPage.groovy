@@ -5,7 +5,7 @@ import geb.Page
 
 //println "This is ScanPage.groovy starttext outside a method"
 class ScanPage extends Page {
-
+    static url = "http://google.nl";
     static at = { title == "Geb - Very Groovy Browser Automation" }
 
     static content = {

@@ -120,7 +120,7 @@ public class TestGroovy1 extends GebReportingSpec{
         b1.printNONstatic2();
         b1.printstatic1();
         GroovyClassTest.tempClass.newInstance().printTempClass();
-        //GroovyClassTest.newInstance().Step1gct()
+        GroovyClassTest.newInstance().Step1gct()//todo hier was ik ook
         //GroovyClassTest.newInstance().Step1gct() //todo niet zo zoomen op losse nonstatic methods. probeer full scripts, alhoewel probleem ligt bij spock/browser
 
         GroovyClassTest.newInstance().printEE1("newinstancetext ");
@@ -135,9 +135,13 @@ public class TestGroovy1 extends GebReportingSpec{
         println "sgtAxx startWHEN"
         //SpecGroovyTest.newInstance().invokeMethod("stepSGT2()",null)//.evaluate
         //SpecGroovyTest.newInstance().stepSGT2()
-        SpecGroovyTest.newInstance().stepSGT3()
+//        SpecGroovyTest.newInstance().stepSGT3()
         then:
-        println "sgtAxx endTHEN"
+        println "sgtAxx endTHEN-------"
+        //sleep(5000)
+        //ScanTest1.newInstance().Step1()
+        //ScanTest1.newInstance().StepHurray()//BEST!!
+
 
         //sgtA.new
         //sgtA.stepSGT2();

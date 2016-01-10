@@ -44,10 +44,13 @@ public call(){
         println "This is stepSGT3 WHEN"
         then:
         println "This is stepSGT3 THEN"*/
-        println "stepSGT3 Text"
+        println "stepSGT3 Text----------------------"
         assert 1==1 //dit is spock? mag wel in non static call
-        expect: //dit is geb mag niet in static call
-        1==1
+        //expect: //dit is geb mag niet in static call
+       // 1==1
+        //assert ${}
+        ScanTest1 stA = new ScanTest1();
+        stA.Step1()
         return
     }
 }
