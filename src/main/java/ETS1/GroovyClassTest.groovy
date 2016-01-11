@@ -33,19 +33,37 @@ public void step3(){
     public void Step2(){
         when:
         println "to1"
-        //to ScanPage
+        to ScanPage
 //todo meer pagina urls enzo, meer pages
         then:
         println "at Step222"
         //Step1() //zou mooi zijn
         //at ScanPage
         println "at Step222"
-        //at CookieClickerPage2
+        at ScanPage
         //page.printEE1();
-        printEE1();
+        when:
+        printEE1("Step2 van GCT");
+        then:
         println "ja GroovyTestClassStep2 end"
     }
-
+    public void Step2b(){
+        when:
+        println "22bb"
+        to ScanPage
+//todo meer pagina urls enzo, meer pages
+        then:
+        println "at Step222bbb"
+        //Step1() //zou mooi zijn
+        //at ScanPage
+        println "at Step222bbb"
+        at ScanPage
+        //page.printEE1();
+        when:
+        printEE1("Step2 van GCT");
+        then:
+        println "ja GroovyTestClassStep2bbb end"
+    }
 
     public static void main(){
         System.out.println("THIS IS MAIN() MAN");
