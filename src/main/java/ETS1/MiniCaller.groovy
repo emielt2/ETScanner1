@@ -45,4 +45,12 @@ class MiniCaller extends GebReportingSpec{
         println "Mini2 TEXT then"
 
     }
+    def "Ga naar inlogpagina van het mp"() {
+
+        when:"Ga naar de inlogpagina van het mp"
+        to ScanPage
+
+        then:"inlogpagina van het mp is geopend"
+        waitFor{at ScanPage}
+    }
 }

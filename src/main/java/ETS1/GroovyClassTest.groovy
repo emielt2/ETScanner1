@@ -6,12 +6,13 @@ import geb.report.ScreenshotReporter
 import geb.spock.GebReportingSpec
 import org.junit.Test
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import spock.lang.Shared
 import spock.lang.Stepwise
 import spock.lang.Shared
 import spock.lang.Stepwise
 
-//@Stepwise
+@Stepwise
 public class GroovyClassTest extends GebReportingSpec{
     int number1 =1;
     static int number2 =2;
@@ -24,13 +25,13 @@ public class GroovyClassTest extends GebReportingSpec{
             println "This is printTempClass THEN"
         }
     }
-public void step3(){
-    /*when:
-    println "This is step3 WHEN"
-    then:
-    println "This is step3 THEN"*/
-    println "step3 Text"
-}
+    public void step3(){
+        /*when:
+        println "This is step3 WHEN"
+        then:
+        println "This is step3 THEN"*/
+        println "step3 Text"
+    }
 
     public void Step2(){
         when:
@@ -106,12 +107,19 @@ public void step3(){
         browser.drive {
             when:
             //NICE MAAKT SCREENSHOTS
-            ScreenshotReporter sr = new ScreenshotReporter()
-            sr.writeReport(new ReportState(browser,"label1234MiniCaller",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
-//todo            sr.writeReport()
-            //print a
             println "Step1gct START"
             to ScanPage
+            browser.go("http://www.nrc.nl")
+            println "check1";//sleep(5000);
+            ScreenshotReporter sr = new ScreenshotReporter()
+            sr.writeReport(new ReportState(browser,"labelStep1gct TRY03",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+            println "Step1gct sr.writeRport"
+            browser.close()
+
+//todo            sr.writeReport()
+            //print a
+
+
 //todo meer pagina urls enzo, meer pages
             then:
             println "at1"
@@ -122,7 +130,42 @@ public void step3(){
             //page.printEE(); hoorde bij at page ScanPage
         }
         println "ja Step1gct end"
-        return;
+       // return;
+    }
+
+    public void Step2gctAlmostHurray(){
+//todo hier verder. hoe callen we deze non static
+
+
+        ChromeOptions chromeoptions = new ChromeOptions();
+        chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+        //chromeoptions.addArguments("start-maximized");
+        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+
+        browser.drive {
+            to ScanPage
+            when:"Ga naar de inlogpagina van het mp"
+            to ScanPage
+            //NICE MAAKT SCREENSHOTS
+            println "Step2gctAlmostHurray START WHEN"
+            sleep(5000)
+            //browser.go("http://www.nrc.nl")
+            browser.go("/economie")
+
+            println "check1";//sleep(5000);
+            ScreenshotReporter sr = new ScreenshotReporter()
+            sr.writeReport(new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+            println "Step1gct sr.writeRport"
+
+            then:
+            println "Step2gctAlmostHurray doing at ScanPage"
+            at ScanPage
+            println "Step2gctAlmostHurray THEN"
+            browser.close()
+            println "Browser Closed"
+        }
+        println "ja Step1gct end"
+        // return;
     }
 
     //maybe not allowed in gebpeport
@@ -161,9 +204,3 @@ public void step3(){
 
 
 }
-
-/*
-public String GeefX(){
-    return "X";
-}
-*/

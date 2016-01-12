@@ -67,7 +67,7 @@ public class ETS1_GUI extends Application {
         grid1.add(hbButtonGo, 1, 0);//buttonGo
 ///---
         //---
-        Button buttonCloseSession = new Button("Close session");
+        Button buttonCloseSession = new Button("Close session--REPORT--------");
         HBox hdButtonCloseSession = new HBox(40);
         hdButtonCloseSession.setAlignment(Pos.TOP_RIGHT);
         hdButtonCloseSession.getChildren().add(buttonCloseSession);
@@ -75,7 +75,7 @@ public class ETS1_GUI extends Application {
         ///---
         //---
 
-        final Button buttonClicking = new Button("CLICKCLICK");
+        final Button buttonClicking = new Button("---CLICKCLICK---");
         HBox hbButtonClicking = new HBox(40);
         hbButtonClicking.setAlignment(Pos.TOP_LEFT);
 
@@ -174,8 +174,14 @@ public class ETS1_GUI extends Application {
 
                 try {
                     System.out.println("Show clicked");
-                    browser1.stopSeleniumConnection();
-                    System.exit(123);
+                    //getDateString
+                    FunctionsDaoETS1 funcs = new FunctionsDaoETS1();
+                    System.out.println(funcs.getDateString());
+                    //browser1.stopSeleniumConnection();
+                    GroovyClassTest gct1 = new GroovyClassTest();
+                    //gct1.Step1gct();
+                    gct1.Step2gctAlmostHurray();
+                    //System.exit(123);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -201,6 +207,7 @@ public class ETS1_GUI extends Application {
                     //gct1.Step1gct();
                     //gct1.Step2();
                     //GroovyClassTest
+
                     ScanTest1 stA=new ScanTest1();//todo runnen met ets_gui-------
                     ChromeOptions chromeoptions = new ChromeOptions();
                     chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");

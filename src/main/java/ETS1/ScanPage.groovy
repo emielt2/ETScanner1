@@ -8,7 +8,7 @@ class ScanPage extends Page {
     static url = "http://gettyimages.nl";
     //static url = "http://gebish.org";
 
-    static at = { title == "Stockfotografie, royalty free foto's en de meest recente nieuwsfoto's | Getty Images" || "Getty Images"}
+    static at = { title == "xStockfotografie, royalty free foto's en de meest recente nieuwsfoto's | Getty Images----" || "Getty Images---------"}
 
     static content = {
         manualsMenu { module MenuModule, $("#header-content ul li", 0) }
