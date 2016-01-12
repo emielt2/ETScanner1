@@ -29,7 +29,7 @@ public call(){
 
 }
     @Test
-    public void stepSGT1(){
+    public void teststepSGT1(){
         /*when:
         println "This is stepSGT1 WHEN"
         then:

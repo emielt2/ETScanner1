@@ -1,4 +1,6 @@
 package ETS1;
+import geb.report.ReportState;
+import geb.report.ScreenshotReporter;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,16 +16,41 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.junit.rules.TestName;
 import org.w3c.dom.NamedNodeMap;
 
+import java.io.File;
+import java.sql.Driver;
 import java.util.Arrays;
+//---
+import ETS1.ScanTest1;
+import ETS1.ScanTest1.*;
+import geb.spock.GebReportingSpec;
+import org.openqa.selenium.By;
+//import pageobjects.afspraak.AfspraakOverlaysPage
+/*import pageobjects.afspraak.AfspraakPage
+import pageobjects.algemeen.KCCPage
+import pageobjects.algemeen.LoginPage
+import spock.lang.Stepwise*/
+import geb.Browser;
+import geb.spock.GebReportingSpec;
+import geb.spock.GebSpec;
+import org.codehaus.groovy.vmplugin.v5.JUnit4Utils;
+import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.spockframework.runtime.SpockRuntime;
+import spock.lang.Specification;
 
+import java.util.concurrent.TimeUnit;
+import geb.Browser;
+///--
 public class ETS1_GUI extends Application {
     static int counter=0;
     static int tryCounter=0;
     static String outputs[]= new String[5];
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage){
         System.out.println("STARTED");
 
         primaryStage.setTitle("ETSCanner1.0");
@@ -164,25 +191,69 @@ public class ETS1_GUI extends Application {
             public void handle(ActionEvent e) {
 
                 try {
-                    System.out.println("--------------------------");
+                    System.out.println("--------------------------clicked");
 //todo GroovyClassTest x1 =
                     GroovyClassTest gct1 = new GroovyClassTest();
                     gct1.Step1gct();
+
                     //gct1.startStep1();
                     //gct1.main();
                     //gct1.Step1gct();
                     //gct1.Step2();
                     //GroovyClassTest
-                    ScanTest1 stA=new ScanTest1();//todo runnen met ets_gui
+                    ScanTest1 stA=new ScanTest1();//todo runnen met ets_gui-------
+                    ChromeOptions chromeoptions = new ChromeOptions();
+                    chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+                    ChromeDriver driver = new ChromeDriver();
+                            //System.setProperty("webdriver.chrome.driver", "F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe");
+                            //new ChromeDriver();
+
+	/*ChromeOptions chromeoptions = new ChromeOptions();
+        chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://gebish.org')*/
+
+                    String baseUrl= "http://gister.com";
+                    //final Browser browser = new Browser(driver= new ChromeDriver(chromeoptions), baseUrl= "http://gebish.org" );
+                    final Browser browser = new Browser();
+                    System.out.println(stA.get$spock_sharedField__browser());
+                    stA.set$spock_sharedField__browser(browser);
+                    stA.setGebConfScript("F:\\Users\\E\\ETScanner1\\src\\test\\resources\\GebConfig.groovy");
+                    stA.createBrowser();
+                    System.out.println(stA.get$spock_sharedField__browser());
+                    //stA.;
+                    //stA.MakeScreenshot2();
                     //stA.StepHurray();
                     //stA.StepAssertOne();
-                    stA.MakeScreenshot("Geb - Very Groovy Browser Automation");
-                    new SpecGroovyTest().stepSGT3();
+                    TestGroovy1 tg = new TestGroovy1();
+                    //tg.GroovyMock();
+                    tg.get$spock_sharedField__browser();
+                    //tg.void3();
+
+                    //---
+
+                    ScreenshotReporter sr = new ScreenshotReporter();
+                    //browser.go("http://www.nrc.nl");
+                    sr.writeReport(new ReportState(browser,"label123",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")));
+
+                    //new MiniCaller().Mini2();
+                    ///----
+/*
+                    GebReportingSpec grs = new GebReportingSpec();
+                    //GebReportingSpec.class.newInstance().GroovyMock();
+                    System.out.println(grs.getGebReportingSpecTestName());
+                    TestName testname1 = new TestName();
+                    testname1.getMethodName();
+
+
+
+                    //
+                    // stA.MakeScreenshot2();
+                    //new SpecGroovyTest().stepSGT3();
                     //ScanTest1.newInstance().StepHurray();
                     //todo call with -gradle.bat?
 
 
-                    //browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());
+                    //browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());//original?
 
 /*
                     outputs = browser1.getAllSelectorX(inputField1.getText(),inputField2.getText());

@@ -1,6 +1,8 @@
 package ETS1
 
 import geb.Browser
+import geb.report.ReportState
+import geb.report.ScreenshotReporter
 import geb.spock.GebReportingSpec
 import org.junit.Test
 import org.openqa.selenium.chrome.ChromeDriver
@@ -103,6 +105,10 @@ public void step3(){
 
         browser.drive {
             when:
+            //NICE MAAKT SCREENSHOTS
+            ScreenshotReporter sr = new ScreenshotReporter()
+            sr.writeReport(new ReportState(browser,"label1234MiniCaller",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+//todo            sr.writeReport()
             //print a
             println "Step1gct START"
             to ScanPage

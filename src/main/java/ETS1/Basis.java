@@ -1,5 +1,7 @@
 package ETS1;
 
+import org.junit.Test;
+
 /**
  * Created by E on 10/01/2016.
  */
@@ -11,11 +13,8 @@ public class Basis {
     public void printNONstatic2(){
         System.out.println("printNONstatic2");
     }
-    public class basisExtraClass{
-
-        void printbasisExtraClass(){
-            System.out.println("This is printTempClass() text");
-
-        }
+    @Test
+    public void basisExtraClass(){
+        System.out.println("This is printTempClass() text");
     }
 }

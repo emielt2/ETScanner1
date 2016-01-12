@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.Assert.fail;
 */
 
+import geb.report.ReportState;
+import geb.report.ScreenshotReporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.NoSuchElementException;
 import org.w3c.dom.NamedNodeMap;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -219,6 +222,13 @@ public class SeleniumDaoETS1 {
             //e.printStackTrace();
             System.out.println(e.getMessage());
         }
+    }
+
+    public void MakeScreenshot(){
+        /*ScreenshotReporter sr = new ScreenshotReporter();
+        browser.go("http://www.nrc.nl");
+        sr.writeReport(new ReportState(browser,"label123",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")));
+        */
     }
 }
 /*
