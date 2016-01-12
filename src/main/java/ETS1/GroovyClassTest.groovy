@@ -5,6 +5,8 @@ import geb.report.ReportState
 import geb.report.ScreenshotReporter
 import geb.spock.GebReportingSpec
 import org.junit.Test
+import org.openqa.selenium.Dimension
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import spock.lang.Shared
@@ -139,29 +141,47 @@ public class GroovyClassTest extends GebReportingSpec{
 
         ChromeOptions chromeoptions = new ChromeOptions();
         chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
-        //chromeoptions.addArguments("start-maximized");
+        chromeoptions.addArguments("start-maximized");
+        //def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
         def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
 
         browser.drive {
-            to ScanPage
-            when:"Ga naar de inlogpagina van het mp"
-            to ScanPage
+            //to ScanPage
+            //when:"Ga naar de inlogpagina van het mp"
             //NICE MAAKT SCREENSHOTS
             println "Step2gctAlmostHurray START WHEN"
-            sleep(5000)
-            //browser.go("http://www.nrc.nl")
-            browser.go("/economie")
+//            println driver.getProperties()
+            //browser.setProperty("user.dir","Y:\\Browser_profile")
+            //browser.setDriver(new ChromeDriver(chromeoptions))
+            //cd = new ChromeDriver(chromeoptions)
+            //browser.set$augmentedDriver(cd)
+//            println "getprop = "+ browser.getProperties()//("user-data-dir")
+            //WebDriver driver2 = new ChromeDriver(chromeoptions);
+            //Browser browser2 = new Browser(driver2: new ChromeDriver(chromeoptions), baseUrl: 'http://ad.nl')
+            //driver.
+            //driver2.manage().window().size = new Dimension(640, 960);
+            //sleep(2000)
+            //driver2.manage().window().size = new Dimension(340, 360);
+
+
+            //browser2.go()
+            browser.go("http://www.weeknummer.nl")
+           // browser.go("/economie")
 
             println "check1";//sleep(5000);
             ScreenshotReporter sr = new ScreenshotReporter()
+            //browser2=browser;
+            //browser2.driver = new ChromeDriver(chromeoptions)
             sr.writeReport(new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+            //sr.writeReport(new ReportState($spock_sharedField__browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+//            sr.writeReport(new ReportState(driver2,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
             println "Step1gct sr.writeRport"
 
-            then:
+            //then:
             println "Step2gctAlmostHurray doing at ScanPage"
-            at ScanPage
+            //at ScanPage
             println "Step2gctAlmostHurray THEN"
-            browser.close()
+            browser.close()//-------------------------
             println "Browser Closed"
         }
         println "ja Step1gct end"
