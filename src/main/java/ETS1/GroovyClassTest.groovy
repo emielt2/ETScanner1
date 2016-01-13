@@ -1,10 +1,12 @@
 package ETS1
 
 import geb.Browser
+import geb.report.PageSourceReporter
 import geb.report.ReportState
 import geb.report.ScreenshotReporter
 import geb.spock.GebReportingSpec
 import org.junit.Test
+import org.openqa.selenium.By
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
@@ -13,6 +15,7 @@ import spock.lang.Shared
 import spock.lang.Stepwise
 import spock.lang.Shared
 import spock.lang.Stepwise
+import sun.plugin.javascript.navig.Navigator
 
 @Stepwise
 public class GroovyClassTest extends GebReportingSpec{
@@ -147,7 +150,7 @@ public class GroovyClassTest extends GebReportingSpec{
 
         browser.drive {
             //to ScanPage
-            //when:"Ga naar de inlogpagina van het mp"
+            when:"Ga naar de inlogpagina van het mp"
             //NICE MAAKT SCREENSHOTS
             println "Step2gctAlmostHurray START WHEN"
 //            println driver.getProperties()
@@ -186,6 +189,79 @@ public class GroovyClassTest extends GebReportingSpec{
         }
         println "ja Step1gct end"
         // return;
+    }
+
+    static ChromeOptions chromeoptions = new ChromeOptions().addArguments("user-data-dir=Y:\\Browser_profile");
+    //@Shared ChromeOptions chromeoptions = new ChromeOptions();
+
+    //@Shared Browser browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+    //@Shared Browser browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+    public void Step3gctHurray(){
+//todo hier verder. hoe callen we deze non static
+//getBrowser()
+        getBrowser(browser)
+
+/*Dit werkte:
+        ChromeOptions chromeoptions = new ChromeOptions();
+        chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+        //chromeoptions.addArguments("start-maximized");
+        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+*/
+        browser.drive {
+            when:"Ga naar de inlogpagina van het mp"
+            //set$spock_sharedField__browser(browser)
+            //this.browser = browser;
+            Browser browser2 = get$spock_sharedField__browser(browser)
+            to ScanPage //todo geen beeld
+            println "Step2gctAlmostHurray START WHEN"
+            //browser.go("http://www.weeknummer.nl")
+            //browser.go("http://www.gebish.org/")
+
+            println "check1";//sleep(5000);
+            ScreenshotReporter screenshotReporter1 = new ScreenshotReporter()
+            ReportState reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            //reportstate.setProperty("class",geb.report.Base64)
+            //reportstate.setProperty()
+            screenshotReporter1.writeReport(reportstate1)
+            PageSourceReporter pageSourceReporter1 = new PageSourceReporter();
+            pageSourceReporter1.writeReport(reportstate1)
+//DEZE WERKT            sr.writeReport(new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
+            println "Step1gct sr.writeReport222 PageSourceReporter"
+
+            print reportstate1.getProperties()
+
+            //geb.report.Base64
+            println "Step1gct sr.writeReport2"
+            println "Step2gctHurray doing at ScanPage"
+            println "Step2gctHurray THEN"
+            sleep(2000)
+            //page.find(By.cssSelector("li.crossbrowser")).click();
+
+            println page.find(By.cssSelector("li.crossbrowser")).toString()
+            println page.find(By.cssSelector("li.crossbrowser")).getProperties()
+            println "GO CLICK DAMIT"
+            page.find(By.cssSelector("li.crossbrowser")).click();
+            browser.find(By.cssSelector("li.crossbrowser")).click();
+
+           //??? browser.find(navigator($("a", href: contains("/crossbrowser")))).click()
+            //$("a", href: contains("/crossbrowser")).click()
+          //  $("a", href: contains("/crossbrowser"))
+            //driver.findElement(By.cssSelector("li.crossbrowser")).click();
+            //find(By.cssSelector("li.crossbrowser")).click();
+            sleep(2000)
+
+            /**reset de reportstate1 met nieuwe date!
+             */
+            reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+
+            screenshotReporter1.writeReport(reportstate1)
+            pageSourceReporter1.writeReport(reportstate1)
+            //css gebish.org linkje=    li.crossbrowser
+            at ScanPage
+            browser.close()//-------------------------
+            println "Browser Closed"
+        }
+        println "ja Step1gct end"
     }
 
     //maybe not allowed in gebpeport

@@ -5,10 +5,13 @@ import geb.Page
 
 //println "This is ScanPage.groovy starttext outside a method"
 class ScanPage extends Page {
+
     static url = "http://gettyimages.nl";
     //static url = "http://gebish.org";
 
-    static at = { title == "xStockfotografie, royalty free foto's en de meest recente nieuwsfoto's | Getty Images----" || "Getty Images---------"}
+    static at = { //title == "xStockfotografie, royalty free foto's en de meest recente nieuwsfoto's | Getty Images----" || "Getty Images---------"
+        title == "Getty Images"
+    }
 
     static content = {
         manualsMenu { module MenuModule, $("#header-content ul li", 0) }

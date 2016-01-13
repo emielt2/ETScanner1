@@ -180,7 +180,8 @@ public class ETS1_GUI extends Application {
                     //browser1.stopSeleniumConnection();
                     GroovyClassTest gct1 = new GroovyClassTest();
                     //gct1.Step1gct();
-                    gct1.Step2gctAlmostHurray();
+                    //gct1.Step2gctAlmostHurray();
+                    gct1.Step3gctHurray();
                     //System.exit(123);
                 } catch (Exception e1) {
                     e1.printStackTrace();

@@ -24,6 +24,7 @@ class MiniCaller extends GebReportingSpec{
         println "mini1 When"
         println "getbrowser geeft " +  getBrowser();
         then:
+        at ScanPage
         println "mini1 Then"
         //new GebSpec().Mini2()
         Mini2()
@@ -36,7 +37,7 @@ class MiniCaller extends GebReportingSpec{
             when:
             ScreenshotReporter sr = new ScreenshotReporter()
             println "Mini2 TEXT when"
-            browser.go("http://www.nrc.nl")
+            browser.go("http://www.gebish.org")
             then:
             sr.writeReport(new ReportState(browser,"label1234MiniCaller",new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1")))
             System.out.println("writereport done");
@@ -51,6 +52,7 @@ class MiniCaller extends GebReportingSpec{
         to ScanPage
 
         then:"inlogpagina van het mp is geopend"
-        waitFor{at ScanPage}
+        at ScanPage
+        println "end inlogpagina"
     }
 }
