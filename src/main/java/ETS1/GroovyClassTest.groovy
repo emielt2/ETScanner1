@@ -1,6 +1,7 @@
 package ETS1
 
 import geb.Browser
+import geb.Browser.*;
 import geb.report.PageSourceReporter
 import geb.report.ReportState
 import geb.report.ScreenshotReporter
@@ -11,6 +12,7 @@ import org.openqa.selenium.Dimension
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
+import org.openqa.selenium.ie.InternetExplorerDriver
 import spock.lang.Shared
 import spock.lang.Stepwise
 import spock.lang.Shared
@@ -191,7 +193,7 @@ public class GroovyClassTest extends GebReportingSpec{
         // return;
     }
 
-    static ChromeOptions chromeoptions = new ChromeOptions().addArguments("user-data-dir=Y:\\Browser_profile");
+    //static ChromeOptions chromeoptions = new ChromeOptions().addArguments("user-data-dir=Y:\\Browser_profile");
     //@Shared ChromeOptions chromeoptions = new ChromeOptions();
 
     //@Shared Browser browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
@@ -199,27 +201,32 @@ public class GroovyClassTest extends GebReportingSpec{
     public void Step3gctHurray(){
 //todo hier verder. hoe callen we deze non static
 //getBrowser()
-        getBrowser(browser)
 
-/*Dit werkte:
+
+/*dit werkte*/
         ChromeOptions chromeoptions = new ChromeOptions();
         chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
         //chromeoptions.addArguments("start-maximized");
-        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
-*/
-        browser.drive {
+        def browser1 = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+        //def browser = new Browser(driver: new InternetExplorerDriver(), baseUrl: 'http://nu.nl')
+
+
+        //new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl').drive {
+        browser1.drive{
             when:"Ga naar de inlogpagina van het mp"
+            //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
             //set$spock_sharedField__browser(browser)
             //this.browser = browser;
-            Browser browser2 = get$spock_sharedField__browser(browser)
+//            Browser browser2 = get$spock_sharedField__browser(browser)
             to ScanPage //todo geen beeld
             println "Step2gctAlmostHurray START WHEN"
-            //browser.go("http://www.weeknummer.nl")
-            //browser.go("http://www.gebish.org/")
-
+            //browser1.go("http://www.weeknummer.nl")
+            /*browser.*/go("http://www.gebish.org/")
+            //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
+            page.//todo hier verder
             println "check1";//sleep(5000);
             ScreenshotReporter screenshotReporter1 = new ScreenshotReporter()
-            ReportState reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            ReportState reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
             //reportstate.setProperty("class",geb.report.Base64)
             //reportstate.setProperty()
             screenshotReporter1.writeReport(reportstate1)
@@ -241,7 +248,7 @@ public class GroovyClassTest extends GebReportingSpec{
             println page.find(By.cssSelector("li.crossbrowser")).getProperties()
             println "GO CLICK DAMIT"
             page.find(By.cssSelector("li.crossbrowser")).click();
-            browser.find(By.cssSelector("li.crossbrowser")).click();
+            browser1.find(By.cssSelector("li.crossbrowser")).click();
 
            //??? browser.find(navigator($("a", href: contains("/crossbrowser")))).click()
             //$("a", href: contains("/crossbrowser")).click()
@@ -252,7 +259,7 @@ public class GroovyClassTest extends GebReportingSpec{
 
             /**reset de reportstate1 met nieuwe date!
              */
-            reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
 
             screenshotReporter1.writeReport(reportstate1)
             pageSourceReporter1.writeReport(reportstate1)

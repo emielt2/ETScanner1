@@ -10,7 +10,7 @@ class ScanPage extends Page {
     //static url = "http://gebish.org";
 
     static at = { //title == "xStockfotografie, royalty free foto's en de meest recente nieuwsfoto's | Getty Images----" || "Getty Images---------"
-        title == "Getty Images"
+        title == "Getty Imagesxx"
     }
 
     static content = {

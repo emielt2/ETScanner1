@@ -5,7 +5,9 @@
 */
 
 
+import geb.Browser
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 
@@ -44,7 +46,7 @@ driver = {
 	System.setProperty('webdriver.chrome.driver', 'F:\\SeleniumDownloadFolder\\chromedriver_win32\\chromedriver.exe')
 	new ChromeDriver()
 
-	/*ChromeOptions chromeoptions = new ChromeOptions();
-        chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
-        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://gebish.org')*/
+	//ChromeOptions chromeoptions = new ChromeOptions();
+    //    chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
+    //    def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://gebish.org')
 }
