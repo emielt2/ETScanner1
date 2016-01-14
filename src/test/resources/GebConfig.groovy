@@ -51,7 +51,7 @@ def final REPORT_DIR = 'target/reports'
 def final DEFAULT_DOWNLOAD_PATH = "C://Users/IEUser/Downloads/"
 
 //TECHNICAL SETTINGS
-def final WAITFOR_TIMEOUT = 5
+def final WAITFOR_TIMEOUT = 3
 def final WAITFOR_RETRY = 0.5
 def final WAIT_AT_KEYWORD_AT = true
 def final WAIT_TIME = 2000
@@ -244,4 +244,5 @@ driver = {
 */
 
 
-//TODO ENVVIRONMENT UITZOEKEN misschien daardoor crossed browser
+/**INFO ENVVIRONMENT UITZOEKEN misschien daardoor crossed browser = nee komt door nieuwe brower.drive
+ */

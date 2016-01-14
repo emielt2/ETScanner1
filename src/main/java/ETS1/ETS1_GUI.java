@@ -191,7 +191,7 @@ public class ETS1_GUI extends Application {
         });
 
         buttonClicking.setOnAction(new EventHandler<ActionEvent>() {
-//todo gooi result naar resulttekst
+
 
             //    #cart-icon
             //      span#cart-count
@@ -199,7 +199,7 @@ public class ETS1_GUI extends Application {
 
                 try {
                     System.out.println("--------------------------clicked");
-//todo GroovyClassTest x1 =
+
                     GroovyClassTest gct1 = new GroovyClassTest();
                     gct1.Step1gct();
 
@@ -209,7 +209,7 @@ public class ETS1_GUI extends Application {
                     //gct1.Step2();
                     //GroovyClassTest
 
-                    ScanTest1 stA=new ScanTest1();//todo runnen met ets_gui-------
+                    ScanTest1 stA=new ScanTest1();//
                     ChromeOptions chromeoptions = new ChromeOptions();
                     chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
                     ChromeDriver driver = new ChromeDriver();
@@ -268,7 +268,7 @@ public class ETS1_GUI extends Application {
                     scenetitle2.setText("Try " + tryCounter++ +"\n");
                     for(int i=0;i<5;i++){
                         scenetitle2.setText(scenetitle2.getText().concat(outputs[i]).concat("\n"));
-                        //todo hier verder. geef gescance attr-mogelijkheden in extra textfield
+                        //todo hier verder. geef gescande attr-mogelijkheden in extra textfield
                     }
                     NamedNodeMap nnm;
                     ///*nnm =*/

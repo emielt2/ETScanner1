@@ -18,7 +18,7 @@ public class GroovyClassTest0 extends GebReportingSpec{
         when:
         println "to1"
         to ScanPage
-//todo meer pagina urls enzo, meer pages
+
         then:
         println "at1"
        // at ScanPage
@@ -36,7 +36,7 @@ public class GroovyClassTest0 extends GebReportingSpec{
         when:
         println "to1"
         //to ScanPage
-//todo meer pagina urls enzo, meer pages
+
         then:
         println "at1"
         //at ScanPage

@@ -19,6 +19,7 @@ import spock.lang.Shared
 import spock.lang.Stepwise
 import sun.plugin.javascript.navig.Navigator
 
+
 @Stepwise
 public class GroovyClassTest extends GebReportingSpec{
     int number1 =1;
@@ -44,7 +45,7 @@ public class GroovyClassTest extends GebReportingSpec{
         when:
         println "to1"
         to ScanPage
-//todo meer pagina urls enzo, meer pages
+
         then:
         println "at Step222"
         //Step1() //zou mooi zijn
@@ -104,7 +105,7 @@ public class GroovyClassTest extends GebReportingSpec{
 
 
     public void Step1gct(){
-//todo hier verder. hoe callen we deze non static
+
         //Step1gct(){}
    // public def "Step1"(){
         //to ScanPage
@@ -141,7 +142,7 @@ public class GroovyClassTest extends GebReportingSpec{
     }
 
     public void Step2gctAlmostHurray(){
-//todo hier verder. hoe callen we deze non static
+
 
 
         ChromeOptions chromeoptions = new ChromeOptions();
@@ -199,7 +200,7 @@ public class GroovyClassTest extends GebReportingSpec{
     //@Shared Browser browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
     //@Shared Browser browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
     public void Step3gctHurray(){
-//todo hier verder. hoe callen we deze non static
+
 //getBrowser()
 
 
@@ -212,7 +213,9 @@ public class GroovyClassTest extends GebReportingSpec{
 
 
         //new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl').drive {
+        //browser1.drive{
         browser1.drive{
+            //Browser.browser.go("http://news.google.nl")
             when:"Ga naar de inlogpagina van het mp"
             //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
             //set$spock_sharedField__browser(browser)
@@ -221,9 +224,9 @@ public class GroovyClassTest extends GebReportingSpec{
             to ScanPage //todo geen beeld
             println "Step2gctAlmostHurray START WHEN"
             //browser1.go("http://www.weeknummer.nl")
-            /*browser.*/go("http://www.gebish.org/")
+            /*browser.*/   go("http://www.gebish.org/")
             //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
-            page.//todo hier verder
+
             println "check1";//sleep(5000);
             ScreenshotReporter screenshotReporter1 = new ScreenshotReporter()
             ReportState reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
@@ -271,36 +274,45 @@ public class GroovyClassTest extends GebReportingSpec{
         println "ja Step1gct end"
     }
 
-    public void Step4gctKeepLooking(){
-//todo hier verder. hoe callen we deze non static
+//    public void Step4gctKeepLooking(){
+    def Step4gctKeepLooking(){
 //getBrowser()
 //when:
-//to ScanPage
 /*dit werkte*/
         ChromeOptions chromeoptions = new ChromeOptions();
         chromeoptions.addArguments("user-data-dir=Y:\\Browser_profile");
         //chromeoptions.addArguments("start-maximized");
-        def browser1 = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
-        //def browser = new Browser(driver: new InternetExplorerDriver(), baseUrl: 'http://nu.nl')
-
+        def browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://kpn.com')
+        //def browser1 = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://telegraaf.nl')
+        //sleep(7000)
+        //def browser1 = new Browser(driver: new InternetExplorerDriver(), baseUrl: 'http://nu.nl')
+       //browser1.go("http://www.gebish.org/")
 
         //new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl').drive {
-        browser1.drive{
+//        browser1.drive(){
+        //browser.drive{
+        browser.drive{
         //getBrowser().drive{
             when:"Ga naar de inlogpagina van het mp"
             //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
             //set$spock_sharedField__browser(browser)
             //this.browser = browser;
 //            Browser browser2 = get$spock_sharedField__browser(browser)
-            to ScanPage //todo geen beeld
+            //Browser.browser.go("http://news.google.nl")
+
+            //to ScanPage //todo geen beeld
             println "Step2gctAlmostHurray START WHEN"
             //browser1.go("http://www.weeknummer.nl")
-            /*browser.*/go("http://www.gebish.org/")
+            /*browser.*/
+            //go("http://www.gebish.org/")
+            //browser.go("http://dumpert.nl")
+            browser.go("http://www.gebish.org/")
             //browser = new Browser(driver: new ChromeDriver(chromeoptions), baseUrl: 'http://nu.nl')
             //page.
                     println "check1";//sleep(5000);
             ScreenshotReporter screenshotReporter1 = new ScreenshotReporter()
-            ReportState reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            //ReportState reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            ReportState reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
             //reportstate.setProperty("class",geb.report.Base64)
             //reportstate.setProperty()
             screenshotReporter1.writeReport(reportstate1)
@@ -314,15 +326,18 @@ public class GroovyClassTest extends GebReportingSpec{
             //geb.report.Base64
             println "Step1gct sr.writeReport2"
             println "Step2gctHurray doing at ScanPage"
+            then:"THEN de inlogpagina van het mp"
             println "Step2gctHurray THEN"
             sleep(2000)
             //page.find(By.cssSelector("li.crossbrowser")).click();
 
             println page.find(By.cssSelector("li.crossbrowser")).toString()
+            println page.find(By.cssSelector("title")).toString()
             println page.find(By.cssSelector("li.crossbrowser")).getProperties()
-            println "GO CLICK DAMIT"
+            println "GO CLICK !!"
+
             page.find(By.cssSelector("li.crossbrowser")).click();
-            browser1.find(By.cssSelector("li.crossbrowser")).click();
+            browser.find(By.cssSelector("li.crossbrowser")).click();
 
             //??? browser.find(navigator($("a", href: contains("/crossbrowser")))).click()
             //$("a", href: contains("/crossbrowser")).click()
@@ -333,12 +348,15 @@ public class GroovyClassTest extends GebReportingSpec{
 
             /**reset de reportstate1 met nieuwe date!
              */
-            reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            //reportstate1 = new ReportState(browser1,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
+            reportstate1 = new ReportState(browser,"label"+new FunctionsDaoETS1().getDateString(),new File("F:\\Users\\E\\ETScanner1\\reports\\ETS1"));
 
             screenshotReporter1.writeReport(reportstate1)
             pageSourceReporter1.writeReport(reportstate1)
+           // screenshotReporter1.writeReport(reportstate1)
+          //  pageSourceReporter1.writeReport(reportstate1)
             //css gebish.org linkje=    li.crossbrowser
-            at ScanPage
+            //at ScanPage
             browser.close()//-------------------------
             println "Browser Closed"
         }
