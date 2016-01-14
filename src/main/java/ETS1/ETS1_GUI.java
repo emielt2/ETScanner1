@@ -181,14 +181,14 @@ public class ETS1_GUI extends Application {
                     GroovyClassTest gct1 = new GroovyClassTest();
                     //gct1.Step1gct();
                     //gct1.Step2gctAlmostHurray();
-                    gct1.Step3gctHurray();
+                    //gct1.Step3gctHurray();
+                    gct1.Step4gctKeepLooking();
                     //System.exit(123);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
         });
-
 
         buttonClicking.setOnAction(new EventHandler<ActionEvent>() {
 //todo gooi result naar resulttekst
