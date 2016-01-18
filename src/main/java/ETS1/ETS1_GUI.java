@@ -260,10 +260,10 @@ public class ETS1_GUI extends Application {
                     //ScanTest1.newInstance().StepHurray();
                     //todo call with -gradle.bat?
 
+*/
+                    browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());//original?
+//todo waarom ging dit eerst beter/graag repair
 
-                    //browser1.printAllSelectorX(inputField1.getText(),inputField2.getText());//original?
-
-/*
                     outputs = browser1.getAllSelectorX(inputField1.getText(),inputField2.getText());
                     scenetitle2.setText("Try " + tryCounter++ +"\n");
                     for(int i=0;i<5;i++){
